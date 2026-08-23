@@ -38,6 +38,7 @@
   <p>외부 공급자를 설정하지 않으면 번역 요청을 전송하지 않습니다. 기기용 SenseVoice를 선택하면 음성을 기기에서 처리합니다. 사용자가 외부 서비스를 직접 등록하고 동의한 경우, 선택한 기능에 필요한 짧은 오디오 조각, 인식된 대사, 제한된 이전 문맥, 대상 언어·시간정보 또는 자막 이미지를 해당 공급자에게 직접 전송할 수 있습니다. 공급자의 보관·학습·결제·계정 정책이 적용됩니다.</p>
   <h3>AI 프로필 QR 전송</h3>
   <p>선택형 QR 설정 페이지에 입력한 프로필과 API 키는 네트워크로 전송되거나 SinbhLAB 서버에 저장되지 않으며, 현재 브라우저 안에서 QR로만 만들어집니다. QR을 볼 수 있는 사람은 그 내용을 읽을 수 있으므로 사용자는 스캔 뒤 페이지를 지우고 QR을 공유하지 않아야 합니다. 앱은 스캔된 프로필을 저장하기 전에 내용 확인, 연결 시험 및 외부 전송 동의를 요구합니다.</p>
+  <p>앱은 사용자가 QR 가져오기를 직접 열었을 때만 카메라 권한을 요청합니다. 카메라 영상과 QR 인식 결과는 기기 안에서 해당 인식 세션 동안만 처리되며, XR Media Center가 이미지나 QR 내용을 저장하거나 SinbhLAB 서버로 전송하지 않습니다.</p>
   <h3>보관과 삭제</h3>
   <p>0.1.x는 Android 클라우드 백업과 기기 이전 복원을 사용하지 않습니다. 정상 업데이트는 데이터를 유지하지만, 앱 내에서 프로필을 삭제하거나 Android 설정에서 저장공간을 지우거나 앱을 제거하면 해당 기기의 앱 데이터가 삭제됩니다. SinbhLAB 서버에 앱 계정이나 미디어 사본은 보관되지 않습니다.</p>
   <h3>진단, 보안과 대상 연령</h3>
@@ -56,6 +57,7 @@
   <p>No translation request is sent without a configured provider. Device SenseVoice processes audio locally. If the user registers and consents to an external service, the app may send required short audio segments, recognized dialogue, limited preceding context, target language/timing metadata, or subtitle images directly to that provider. The provider's retention, training, billing, and account policies apply.</p>
   <h3>AI profile QR transfer</h3>
   <p>Profiles and API keys entered on the optional QR setup page are not transmitted over the network or stored on a SinbhLAB server. The QR is generated only in the current browser. Anyone who can see the QR may read its contents, so users should clear the page after scanning and must not share the QR. Before saving an imported profile, the app requires review, a connection test, and consent to external transmission.</p>
+  <p>The app requests camera permission only when the user opens QR import. Camera frames and decoded QR results are processed on-device only for that scanning session. XR Media Center does not save the images or QR contents and does not send them to a SinbhLAB server.</p>
   <h3>Retention and deletion</h3>
   <p>Version 0.1.x disables Android cloud backup and device-transfer restore. Normal updates preserve data. Removing profiles in the app, clearing storage in Android settings, or uninstalling the app removes applicable app data from that device. No XR Media Center account or media copy is retained on a SinbhLAB server.</p>
   <h3>Diagnostics, security, and audience</h3>
@@ -74,6 +76,7 @@
   <p>外部提供者を設定しない限り翻訳要求は送信しません。端末用SenseVoiceは端末内で処理します。ユーザーが外部サービスを登録して同意した場合、必要な短い音声、認識文、限定された直前文脈、対象言語・時刻情報、字幕画像をその提供者へ直接送る場合があります。提供者の保存・学習・課金・アカウント方針が適用されます。</p>
   <h3>AIプロファイルのQR転送</h3>
   <p>任意のQR設定ページに入力したプロファイルとAPIキーはネットワーク送信されず、SinbhLABサーバーにも保存されません。QRは現在のブラウザー内だけで生成されます。QRを見られる人は内容を読み取れるため、スキャン後はページを消去し、QRを共有しないでください。アプリは取り込んだプロファイルを保存する前に、内容確認、接続テスト、外部送信への同意を求めます。</p>
+  <p>アプリは、ユーザーがQR取り込みを開いた場合にのみカメラ権限を要求します。カメラ映像とQR認識結果は、そのスキャンセッション中だけ端末内で処理されます。XR Media Centerは画像やQR内容を保存せず、SinbhLABサーバーにも送信しません。</p>
   <h3>保存と削除</h3>
   <p>0.1.xはAndroidクラウドバックアップと端末移行復元を無効にします。通常更新ではデータを維持します。アプリ内でのプロファイル削除、Android設定でのデータ消去、アンインストールにより対象データが端末から削除されます。SinbhLABサーバーにアプリアカウントやメディアのコピーは保存しません。</p>
   <h3>診断・安全性・対象年齢</h3>
@@ -92,6 +95,7 @@
   <p>未配置外部服务时不会发送翻译请求。设备版 SenseVoice 在本机处理音频。用户注册外部服务并同意后，应用可能向该服务直接发送所需的短音频、识别文本、有限的前文、目标语言/时间信息或字幕图片。该服务的保存、训练、计费和账号政策适用。</p>
   <h3>AI 配置二维码传输</h3>
   <p>在可选二维码设置页面中输入的配置和 API 密钥不会通过网络发送，也不会存储在 SinbhLAB 服务器上；二维码仅在当前浏览器内生成。任何能看到二维码的人都可能读取其中内容，因此扫描后应清除页面且不要分享二维码。应用在保存导入的配置前会要求用户核对内容、测试连接并同意向外部服务传输数据。</p>
+  <p>仅当用户主动打开二维码导入时，应用才会请求相机权限。相机画面和二维码识别结果只在本次扫描期间于设备上处理。XR Media Center 不保存图像或二维码内容，也不会将其发送到 SinbhLAB 服务器。</p>
   <h3>保留与删除</h3>
   <p>0.1.x 禁用 Android 云备份和设备迁移恢复。正常更新会保留数据。在应用中删除配置、通过 Android 设置清除存储或卸载应用，会从该设备删除相应数据。SinbhLAB 服务器不保存应用账号或媒体副本。</p>
   <h3>诊断、安全与适用人群</h3>
