@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta name="description" content="Create a local-only XR Media Center AI profile QR code">
+  <title>XR Media Center · AI Profile QR</title>
+  <link rel="stylesheet" href="profile-setup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">XR MEDIA CENTER</p>
+      <h1>AI 프로필 QR 만들기</h1>
+      <p class="lede">PC에서 프로필을 입력하고 QR을 만든 뒤, 헤드셋의 XR Media Center에서 스캔하세요.</p>
+    </header>
+
+    <section class="privacy-note" aria-label="Privacy notice">
+      <strong>입력값은 이 PC 밖으로 전송되지 않습니다.</strong>
+      <span>이 페이지는 정적 페이지이며 QR은 브라우저 안에서만 생성됩니다. 전송·저장·분석 요청은 차단되어 있습니다.</span>
+    </section>
+
+    <div class="layout">
+      <form id="profile-form" novalidate>
+        <label>프로필 이름<input id="profile-name" maxlength="80" autocomplete="off" required placeholder="예: My Gemini"></label>
+        <fieldset>
+          <legend>서비스</legend>
+          <div class="provider-row">
+            <label class="provider"><input type="radio" name="provider" value="o" checked> OpenAI 호환</label>
+            <label class="provider"><input type="radio" name="provider" value="g"> Gemini</label>
+            <label class="provider"><input type="radio" name="provider" value="c"> Claude</label>
+          </div>
+        </fieldset>
+        <label id="endpoint-field">서버 주소<input id="endpoint" maxlength="512" autocomplete="off" placeholder="https://server.example.com/v1"></label>
+        <label>모델<input id="model" maxlength="160" autocomplete="off" required></label>
+        <label>API 키<input id="api-key" type="password" maxlength="768" autocomplete="new-password"></label>
+        <label class="inline"><input id="show-key" type="checkbox"> API 키 표시</label>
+        <label class="inline"><input id="compact-prompt" type="checkbox" checked> 간소화 프롬프트 사용</label>
+        <p id="form-error" class="error" role="alert" hidden></p>
+        <div class="actions">
+          <button type="submit">QR 생성</button>
+          <button id="clear-button" type="button" class="secondary">입력 지우기</button>
+        </div>
+      </form>
+
+      <section id="qr-card" class="qr-card" aria-live="polite">
+        <div id="qr-placeholder"><span class="qr-mark">▦</span><p>프로필을 입력하면<br>여기에 QR이 표시됩니다.</p></div>
+        <div id="qr-output" hidden></div>
+        <p id="qr-caption" hidden>헤드셋에서 설정 → 자막 → AI 프로필 → <strong>QR로 프로필 가져오기</strong>를 선택하세요.</p>
+      </section>
+    </div>
+
+    <section class="warning">
+      <h2>보안 안내</h2>
+      <p>QR을 볼 수 있는 사람은 API 키도 가져올 수 있습니다. 스캔이 끝나면 이 페이지의 <strong>입력 지우기</strong>를 누르고 QR을 공유하거나 캡처하지 마세요. 헤드셋에서는 내용을 확인하고 외부 AI 전송에 동의한 뒤 저장해야 실제로 사용됩니다.</p>
+    </section>
+    <footer><a href="../">개인정보처리방침</a><span>·</span><a href="LICENSE-qrcode-generator.txt">QR generator license</a></footer>
+  </main>
+  <script type="module" src="profile-setup.js"></script>
+</body>
+</html>
